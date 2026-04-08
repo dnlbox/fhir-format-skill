@@ -6,6 +6,7 @@ Use this in Anthropic Claude Marketplace submission.
 
 - Link to plugin: `https://github.com/dnlbox/fhir-format-skill`
 - Plugin homepage: `https://dnlbox.github.io/fhir-format-skill/`
+- Privacy policy URL: `https://dnlbox.github.io/fhir-format-skill/privacy/`
 
 ## Plugin details
 

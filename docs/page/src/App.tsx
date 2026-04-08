@@ -272,6 +272,9 @@ fields for a Patient resource in R5?"`}</code>
             <a href="#" className="hover:text-accent transition-colors flex items-center gap-1">
               <ExternalLink size={14} /> Marketplace
             </a>
+            <a href="/fhir-format-skill/privacy/" className="hover:text-accent transition-colors flex items-center gap-1">
+              <ShieldCheck size={14} /> Privacy
+            </a>
           </div>
           <p className="text-sm text-muted">
             &copy; 2026 MIT License. Built for the FHIR community.
