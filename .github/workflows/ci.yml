@@ -1,0 +1,29 @@
+name: Publish Readiness CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate metadata alignment
+        run: python3 scripts/validate_metadata.py
+
+      - name: Validate frozen benchmark JSON files
+        run: |
+          python3 benchmark/validate_results.py \
+            benchmark/results/2026-04-08-baseline.json \
+            benchmark/results/2026-04-08-with-skill.json

@@ -1,0 +1,21 @@
+{
+  "name": "fhir-format",
+  "description": "Accuracy-first FHIR R4/R4B/R5 skill for structure, terminology, and integration guidance",
+  "version": "0.1.0",
+  "author": {
+    "name": "FHIR Toolkit"
+  },
+  "homepage": "https://dnlbox.github.io/fhir-format-skill/",
+  "repository": "https://github.com/dnlbox/fhir-format-skill",
+  "license": "MIT",
+  "skills": "./skills/",
+  "keywords": [
+    "fhir",
+    "hl7",
+    "healthcare",
+    "interoperability",
+    "r4",
+    "r4b",
+    "r5"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "name": "fhir-format-marketplace",
+  "owner": {
+    "name": "FHIR Toolkit"
+  },
+  "metadata": {
+    "description": "Marketplace catalog for the fhir-format knowledge plugin",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "fhir-format",
+      "source": "./",
+      "description": "Accuracy-first FHIR R4/R4B/R5 skill for structure, terminology, and integration guidance",
+      "version": "0.1.0",
+      "author": {
+        "name": "FHIR Toolkit"
+      },
+      "license": "MIT",
+      "repository": "https://github.com/dnlbox/fhir-format-skill",
+      "keywords": [
+        "fhir",
+        "hl7",
+        "healthcare",
+        "interoperability"
+      ]
+    }
+  ]
+}

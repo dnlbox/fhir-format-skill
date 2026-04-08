@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fhir-format | Accuracy-first FHIR skill</title>
+    <meta
+      name="description"
+      content="Accuracy-first Claude plugin for FHIR R4, R4B, and R5 JSON reasoning with source-backed claims and explicit conformance boundaries."
+    />
+    <style>
+      :root {
+        --bg: #07131f;
+        --card: #0f2133;
+        --line: #1f3a53;
+        --text: #e7f0f8;
+        --muted: #9ab2c7;
+        --accent: #1dc7b5;
+        --accent-2: #f3b743;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 0%, #12365a 0%, var(--bg) 45%) fixed;
+      }
+
+      .wrap {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 2.5rem 1.1rem 4rem;
+      }
+
+      .hero {
+        background: linear-gradient(145deg, #10263b, #0a1a2a);
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 2rem;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+      }
+
+      h1 {
+        margin: 0 0 0.7rem;
+        font-size: clamp(1.7rem, 4vw, 2.9rem);
+      }
+
+      p {
+        line-height: 1.55;
+      }
+
+      .lead {
+        color: var(--muted);
+        font-size: 1.08rem;
+        max-width: 76ch;
+      }
+
+      .badges {
+        margin-top: 1.2rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+      }
+
+      .badge {
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 0.32rem 0.72rem;
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+
+      .cta {
+        margin-top: 1.3rem;
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        text-decoration: none;
+        border-radius: 10px;
+        padding: 0.68rem 0.98rem;
+        border: 1px solid var(--line);
+        color: var(--text);
+        transition: transform 0.15s ease, border-color 0.15s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+        border-color: var(--accent);
+      }
+
+      .btn.primary {
+        background: linear-gradient(120deg, var(--accent), #128f94);
+        border-color: transparent;
+        color: #032024;
+        font-weight: 600;
+      }
+
+      .grid {
+        margin-top: 1rem;
+        display: grid;
+        gap: 0.9rem;
+      }
+
+      @media (min-width: 760px) {
+        .grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 1rem;
+      }
+
+      .card h2 {
+        margin: 0 0 0.5rem;
+        font-size: 1.08rem;
+      }
+
+      .muted {
+        color: var(--muted);
+      }
+
+      code {
+        background: #0a1827;
+        border: 1px solid #1a3249;
+        padding: 0.12rem 0.35rem;
+        border-radius: 6px;
+      }
+
+      pre {
+        margin: 0.6rem 0 0;
+        background: #0a1827;
+        border: 1px solid #1a3249;
+        border-radius: 10px;
+        padding: 0.8rem;
+        overflow-x: auto;
+      }
+
+      .accent {
+        color: var(--accent-2);
+      }
+
+      footer {
+        margin-top: 1.4rem;
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="hero">
+        <h1>fhir-format</h1>
+        <p class="lead">
+          Accuracy-first Claude plugin for <span class="accent">FHIR R4, R4B, and R5</span>.
+          Built to reduce confident-but-wrong guidance by enforcing claim labels, source-backed normative statements,
+          and explicit boundaries between structural checks and full conformance.
+        </p>
+
+        <div class="badges">
+          <span class="badge">R4 / R4B / R5</span>
+          <span class="badge">No guessed terminology codes</span>
+          <span class="badge">Profile-aware answers</span>
+          <span class="badge">Benchmark-backed</span>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="https://github.com/dnlbox/fhir-format-skill">View Repository</a>
+          <a class="btn" href="https://github.com/dnlbox/fhir-format-skill/blob/main/README.md">Read Docs</a>
+          <a class="btn" href="https://github.com/dnlbox/fhir-format-skill/blob/main/benchmark/README.md">See Benchmark</a>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Quick install</h2>
+          <pre><code>claude plugin marketplace add https://github.com/dnlbox/fhir-format-skill
+claude plugin install fhir-format@fhir-format-marketplace
+/fhir-format:fhir-format</code></pre>
+        </article>
+
+        <article class="card">
+          <h2>What it enforces</h2>
+          <p class="muted">
+            Claims are labeled as Normative, Version-delta, Profile-dependent, or Implementation practice.
+            Normative claims should include authoritative references.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Best use cases</h2>
+          <p class="muted">
+            Required field clarifications, version differences, terminology-safe guidance, and conformance boundary
+            explanations for modern TypeScript, Python, and AI workflows.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Independent validation</h2>
+          <p class="muted">
+            Includes reproducible relevance and CLI benchmarks so users can verify activation quality, answer quality,
+            and source verifiability themselves.
+          </p>
+        </article>
+      </section>
+
+      <footer>
+        MIT Licensed. Maintained by FHIR Toolkit contributors.
+      </footer>
+    </main>
+  </body>
+</html>

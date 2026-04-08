@@ -1,0 +1,116 @@
+{
+  "resourceType": "Bundle",
+  "id": "transaction-bundle-example",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2024-01-15T10:40:00Z"
+  },
+  "type": "transaction",
+  "timestamp": "2024-01-15T10:40:00Z",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-001",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-001",
+        "identifier": [
+          {
+            "system": "https://hospital.example.org/patients",
+            "value": "MRN-001"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Johnson",
+            "given": ["Sarah"]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1990-07-22"
+      },
+      "request": {
+        "method": "POST",
+        "url": "Patient"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:org-001",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-001",
+        "name": "Example Hospital",
+        "identifier": [
+          {
+            "system": "https://example.org/identifiers",
+            "value": "ORG-12345"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Organization"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:pract-001",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-001",
+        "name": [
+          {
+            "use": "official",
+            "family": "Williams",
+            "given": ["Robert"],
+            "prefix": ["Dr."]
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1234567890"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Practitioner"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-001",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-001",
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8867-4",
+              "display": "Heart rate"
+            }
+          ]
+        },
+        "valueQuantity": {
+          "value": 72,
+          "unit": "beats/minute",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-001"
+        },
+        "performer": [
+          {
+            "reference": "urn:uuid:pract-001"
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Observation"
+      }
+    }
+  ]
+}

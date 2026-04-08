@@ -1,0 +1,140 @@
+{
+  "common_errors": [
+    {
+      "error": "Missing resourceType",
+      "invalid": {
+        "id": "123",
+        "name": [{ "family": "Smith" }]
+      },
+      "valid": {
+        "resourceType": "Patient",
+        "id": "123",
+        "name": [{ "family": "Smith" }]
+      },
+      "source": "https://hl7.org/fhir/R4/resource.html#resourcetype"
+    },
+    {
+      "error": "Invalid date format",
+      "invalid": {
+        "resourceType": "Patient",
+        "birthDate": "03/15/1985"
+      },
+      "valid": {
+        "resourceType": "Patient",
+        "birthDate": "1985-03-15"
+      },
+      "source": "https://hl7.org/fhir/R4/datatypes.html#date"
+    },
+    {
+      "error": "Invalid FHIR id format",
+      "invalid": {
+        "resourceType": "Patient",
+        "id": "Patient with spaces in id"
+      },
+      "valid": {
+        "resourceType": "Patient",
+        "id": "patient-with-spaces-in-id"
+      },
+      "note": "FHIR id must match pattern: [A-Za-z0-9\\-\\.]{1,64}",
+      "source": "https://hl7.org/fhir/R4/resource.html#id"
+    },
+    {
+      "error": "Invalid reference format",
+      "invalid": {
+        "resourceType": "Observation",
+        "subject": {
+          "reference": "patient/123"
+        }
+      },
+      "valid": {
+        "resourceType": "Observation",
+        "subject": {
+          "reference": "Patient/123"
+        }
+      },
+      "source": "https://hl7.org/fhir/R4/references.html#Reference"
+    },
+    {
+      "error": "Observation without required status",
+      "invalid": {
+        "resourceType": "Observation",
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "8867-4"
+          }]
+        }
+      },
+      "valid": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "8867-4"
+          }]
+        }
+      },
+      "source": "https://hl7.org/fhir/R4/observation.html#required"
+    },
+    {
+      "error": "CodeableConcept text-only (interoperability risk)",
+      "classification": "warning",
+      "note": "Text-only CodeableConcept can be valid in base FHIR but is often not enough for cross-system interoperability or profile conformance.",
+      "less-interoperable": {
+        "resourceType": "Condition",
+        "code": {
+          "text": "Diabetes"
+        }
+      },
+      "preferred": {
+        "resourceType": "Condition",
+        "code": {
+          "coding": [{
+            "system": "http://snomed.info/sct",
+            "code": "44054006",
+            "display": "Type 2 diabetes mellitus"
+          }],
+          "text": "Type 2 diabetes mellitus"
+        }
+      },
+      "source": "https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"
+    },
+    {
+      "error": "Quantity without UCUM system/code (interoperability risk)",
+      "classification": "warning",
+      "note": "Quantity.system and Quantity.code are often required by profiles even when optional in base datatype cardinality.",
+      "less-interoperable": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "8867-4"
+          }]
+        },
+        "valueQuantity": {
+          "value": 72,
+          "unit": "bpm"
+        }
+      },
+      "preferred": {
+        "resourceType": "Observation",
+        "status": "final",
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "8867-4"
+          }]
+        },
+        "valueQuantity": {
+          "value": 72,
+          "unit": "beats/minute",
+          "system": "http://unitsofmeasure.org",
+          "code": "/min"
+        }
+      },
+      "source": "https://hl7.org/fhir/R4/datatypes.html#Quantity"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+[
+  {
+    "query_id": "R1",
+    "query_text": "Is Observation.code required in FHIR R4B?",
+    "should_activate_fhir_skill": "yes",
+    "answer": "[Normative] Yes. In FHIR R4B, Observation.code has cardinality 1..1, so it is required for structural validity. [Profile-dependent] Profiles can further constrain coding content but cannot make this required element optional.",
+    "sources": [
+      "https://hl7.org/fhir/R4B/observation-definitions.html#Observation.code",
+      "https://hl7.org/fhir/R4B/conformance-rules.html"
+    ]
+  },
+  {
+    "query_id": "R2",
+    "query_text": "I have Observation.valueQuantity but no UCUM unit code; can I just put \"mg per dl\" as text?",
+    "should_activate_fhir_skill": "yes",
+    "answer": "[Normative] Quantity.unit is human-readable text, while Quantity.system and Quantity.code carry computable meaning. [Implementation practice] For interoperability, include UCUM system and code whenever possible. [Profile-dependent] Many implementation guides require or strongly expect UCUM coding; plain text may fail profile conformance.",
+    "sources": [
+      "https://hl7.org/fhir/R4B/datatypes-definitions.html#Quantity.unit",
+      "https://hl7.org/fhir/R4B/datatypes-definitions.html#Quantity.system",
+      "https://hl7.org/fhir/R4B/datatypes-definitions.html#Quantity.code",
+      "https://hl7.org/fhir/us/core/"
+    ]
+  },
+  {
+    "query_id": "R3",
+    "query_text": "Does validating with fhir-resource-diff guarantee US Core conformance?",
+    "should_activate_fhir_skill": "yes",
+    "answer": "No. [Implementation practice] Structural validation can confirm base FHIR shape. [Profile-dependent] US Core conformance also requires profile constraints, terminology bindings, and invariants, so structural checks are not full conformance proof.",
+    "sources": [
+      "https://hl7.org/fhir/validation.html",
+      "https://hl7.org/fhir/us/core/",
+      "https://hl7.org/fhir/us/core/general-guidance.html"
+    ]
+  },
+  {
+    "query_id": "R4",
+    "query_text": "Compare what changed in MedicationRequest between R4 and R5 that affects field requirements.",
+    "should_activate_fhir_skill": "yes",
+    "answer": "[Version-delta] Required backbone elements are largely stable across R4 and R5 (status, intent, medication, subject). A major change is medication representation from R4 medication[x] to R5 medication as CodeableReference, which impacts migration mapping even when cardinality is still required.",
+    "sources": [
+      "https://hl7.org/fhir/R4/medicationrequest-definitions.html",
+      "https://hl7.org/fhir/R5/medicationrequest-definitions.html",
+      "https://hl7.org/fhir/R5/medicationrequest.html"
+    ]
+  },
+  {
+    "query_id": "R5",
+    "query_text": "Here's a Patient JSON missing resourceType. What is the minimum fix and why?",
+    "should_activate_fhir_skill": "yes",
+    "answer": "[Normative] Add top-level \"resourceType\": \"Patient\". This element is mandatory for all resources and identifies which resource schema and rules apply.",
+    "sources": [
+      "https://hl7.org/fhir/R4B/resource-definitions.html#Resource.resourceType",
+      "https://hl7.org/fhir/R4B/json.html"
+    ]
+  },
+  {
+    "query_id": "N1",
+    "query_text": "Write a PostgreSQL query to find duplicate emails in users table.",
+    "should_activate_fhir_skill": "no",
+    "answer": "SELECT email, COUNT(*) AS duplicate_count FROM users WHERE email IS NOT NULL GROUP BY email HAVING COUNT(*) > 1 ORDER BY duplicate_count DESC, email;",
+    "sources": []
+  },
+  {
+    "query_id": "N2",
+    "query_text": "Explain the difference between React Server Components and client components.",
+    "should_activate_fhir_skill": "no",
+    "answer": "Server Components run on the server and reduce browser JavaScript. Client Components run in the browser and are needed for state, effects, and event handlers.",
+    "sources": [
+      "https://react.dev/reference/rsc/server-components",
+      "https://react.dev/reference/rsc/use-client"
+    ]
+  },
+  {
+    "query_id": "N3",
+    "query_text": "Draft a polite follow-up email after a missed interview.",
+    "should_activate_fhir_skill": "no",
+    "answer": "Subject: Follow-up on Today's Interview\n\nHi [Interviewer Name],\n\nI wanted to follow up regarding our interview scheduled for [date/time]. I understand schedules can shift, and I am still very interested in the opportunity.\n\nIf helpful, I am happy to reschedule at a time that works best for you.\n\nBest regards,\n[Your Name]",
+    "sources": []
+  },
+  {
+    "query_id": "N4",
+    "query_text": "What's the fastest way to zip a folder on macOS terminal?",
+    "should_activate_fhir_skill": "no",
+    "answer": "zip -r archive.zip /path/to/folder",
+    "sources": [
+      "https://man.freebsd.org/cgi/man.cgi?query=zip"
+    ]
+  },
+  {
+    "query_id": "N5",
+    "query_text": "Suggest a 5-day beginner gym plan.",
+    "should_activate_fhir_skill": "no",
+    "answer": "Day 1 Upper, Day 2 Lower, Day 3 Cardio + mobility, Day 4 Upper, Day 5 Lower + conditioning. Use 2-3 sets, 8-12 reps, and gradual progression.",
+    "sources": []
+  }
+]
