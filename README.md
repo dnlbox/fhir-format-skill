@@ -17,15 +17,15 @@ Run the skill:
 /fhir-format:fhir-format
 ```
 
-Homepage: https://dnlbox.github.io/fhir-format-skill/
+You can also trigger it naturally with FHIR-focused prompts.
 
 ## What it does
 
-- Labels claims as `Normative`, `Version-delta`, `Profile-dependent`, or `Implementation practice`
-- Requires authoritative URLs for normative claims
-- Prevents guessed terminology codes and made-up conformance claims
-- Separates structural validation from full profile and terminology conformance
-- Supports version-aware guidance for R4, R4B, and R5
+- Classifies guidance by scope: base spec, version change, profile constraint, or implementation advice
+- Adds authoritative source links for base-spec statements
+- Avoids guessed terminology codes and unsupported certainty
+- Distinguishes structural validation results from full profile/terminology conformance
+- Keeps guidance version-aware across R4, R4B, and R5
 
 ## When to use
 
@@ -39,7 +39,7 @@ Use `fhir-format` for:
 Avoid using `fhir-format` alone for:
 
 - Final legal/compliance decisions (HIPAA/GDPR/legal counsel required)
-- Full IG conformance sign-off without profile + terminology-capable validation
+- Full IG conformance (Implementation Guide profile conformance, e.g., US Core/IPS) sign-off without profile + terminology-capable validation
 - Clinical coding decisions without official terminology lookup
 
 ## Trigger examples
@@ -116,18 +116,6 @@ There is a second benchmark lane for command-grounded tasks using `fhir-test-dat
 - Prompts: `benchmark/cli/PROMPTS.md`
 - Runbook: `benchmark/cli/README.md`
 - Results template: `benchmark/cli/results/RESULT_TEMPLATE.md`
-
-## CI checks
-
-The repository includes publish-readiness checks in GitHub Actions:
-
-- metadata consistency across plugin manifests and skill frontmatter
-- frozen benchmark result schema validation
-- Vite landing-page build from `docs/page`
-
-Workflow file: `.github/workflows/ci.yml`
-
-The public homepage at https://dnlbox.github.io/fhir-format-skill/ is built from `docs/page/` and deployed via `.github/workflows/pages.yml`.
 
 ## Reference links
 

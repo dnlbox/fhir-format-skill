@@ -1,17 +1,16 @@
 import { ReactNode } from "react";
 import { motion } from "motion/react";
-import { 
-  Github, 
-  BookOpen, 
+import {
+  Github,
+  BookOpen,
   Terminal, 
   ShieldCheck, 
   Zap, 
   Layers, 
   ArrowRight, 
-  CheckCircle2, 
+  CheckCircle2,
   ExternalLink,
   GitPullRequest,
-  Calendar,
   Tag
 } from "lucide-react";
 
@@ -33,8 +32,7 @@ const Card = ({ children, className = "" }: { children: ReactNode; className?: s
 );
 
 export default function App() {
-  const currentVersion = "v1.0.2";
-  const lastUpdated = "April 2026";
+  const currentVersion = __PLUGIN_VERSION__;
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -73,7 +71,7 @@ export default function App() {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-mono mb-6">
               <Tag size={12} />
-              <span>Latest Release: {currentVersion}</span>
+              <span>Plugin Version: {currentVersion}</span>
             </div>
             <h1 className="text-6xl md:text-7xl font-bold tracking-tighter leading-[0.9] mb-6">
               Accurate, <span className="text-accent italic font-serif">source-aware</span> FHIR guidance.
