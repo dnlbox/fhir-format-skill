@@ -17,7 +17,7 @@ This note captures practical patterns observed from strong Claude plugin reposit
 2. Explicit activation examples
    - They show natural phrases that trigger commands/skills.
 3. Clear scope boundaries
-   - They state what the plugin does and does not guarantee.
+   - They state what the plugin is designed to do and what remains out of scope.
 4. Operator-friendly workflows
    - They include practical command snippets for real workflows.
 5. Strong metadata hygiene
@@ -29,7 +29,7 @@ This note captures practical patterns observed from strong Claude plugin reposit
 
 1. Long abstract docs without a quick start.
 2. Ambiguous invocation (user cannot tell how to run the plugin).
-3. Capability over-claims (implying guarantees that tooling cannot provide).
+3. Capability over-claims (implying certainty that tooling cannot provide).
 4. Missing examples for real user phrasing.
 5. Blurry line between normative truth vs recommendations.
 

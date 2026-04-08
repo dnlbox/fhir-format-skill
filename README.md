@@ -51,7 +51,7 @@ Natural prompts that should trigger this skill:
 - "Can I validate this bundle with `fhir-resource-diff` and call it US Core compliant?"
 - "What is the safest way to represent units and coding in this Observation?"
 
-## Core behavior guarantees
+## Core behavior guardrails
 
 - No fabricated FHIR semantics
 - No guessed terminology codes
@@ -125,52 +125,6 @@ The repository includes publish-readiness checks in GitHub Actions:
 - frozen benchmark result schema validation
 
 Workflow file: `.github/workflows/ci.yml`
-
-## Repository layout
-
-```text
-fhir-format-skill/
-├── .github/
-│   └── workflows/
-│       ├── ci.yml
-│       └── pages.yml
-├── .claude-plugin/
-│   ├── plugin.json
-│   └── marketplace.json
-├── docs/
-│   └── index.html
-├── skills/
-│   └── fhir-format/
-│       └── SKILL.md
-├── examples/
-│   ├── patient.json
-│   ├── observation.json
-│   ├── bundle.json
-│   └── common-errors.json
-├── benchmark/
-│   ├── QUERIES.md
-│   ├── PROMPTS.md
-│   ├── README.md
-│   ├── validate_results.py
-│   ├── cli/
-│   │   ├── QUERIES.md
-│   │   ├── PROMPTS.md
-│   │   ├── README.md
-│   │   └── results/
-│   │       └── RESULT_TEMPLATE.md
-│   └── results/
-│       └── RESULT_TEMPLATE.md
-├── scripts/
-│   └── validate_metadata.py
-├── ACCURACY_MATRIX.md
-├── CONTRIBUTING.md
-├── LICENSE.md
-├── MARKETPLACE_BENCHMARK.md
-├── MARKETPLACE_SUBMISSION.md
-├── PUBLISHING_CHECKLIST.md
-├── README.md
-└── SKILL.md
-```
 
 ## Reference links
 
