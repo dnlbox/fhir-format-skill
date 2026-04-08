@@ -123,8 +123,11 @@ The repository includes publish-readiness checks in GitHub Actions:
 
 - metadata consistency across plugin manifests and skill frontmatter
 - frozen benchmark result schema validation
+- Vite landing-page build from `docs/page`
 
 Workflow file: `.github/workflows/ci.yml`
+
+The public homepage at https://dnlbox.github.io/fhir-format-skill/ is built from `docs/page/` and deployed via `.github/workflows/pages.yml`.
 
 ## Reference links
 
