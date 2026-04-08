@@ -121,5 +121,4 @@ There is a second benchmark lane for command-grounded tasks using `fhir-test-dat
 
 - Plugins guide: https://code.claude.com/docs/en/plugins
 - Plugin marketplaces guide: https://code.claude.com/docs/en/plugin-marketplaces
-- Benchmark notes used for this plugin: `MARKETPLACE_BENCHMARK.md`
 - Privacy policy: https://dnlbox.github.io/fhir-format-skill/privacy/
