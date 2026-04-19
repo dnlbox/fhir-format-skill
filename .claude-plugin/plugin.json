@@ -1,6 +1,6 @@
 {
   "name": "fhir-format",
-  "description": "Accuracy-first FHIR R4/R4B/R5 skill for structure, terminology, and integration guidance",
+  "description": "FHIR R4/R4B/R5 skill — source-labeled guidance for structure, cardinality, terminology bindings, and version differences",
   "version": "0.1.0",
   "author": {
     "name": "FHIR Toolkit"
