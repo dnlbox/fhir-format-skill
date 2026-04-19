@@ -1,8 +1,20 @@
 # fhir-format plugin skill
 
-`fhir-format` is an accuracy-first Claude plugin for FHIR JSON reasoning across R4, R4B, and R5.
+A Claude plugin for sourced FHIR guidance. Not a FHIR development assistant —
+a reasoning layer that keeps the agent honest about what the spec actually says.
 
-It is optimized for one outcome: reduce confident-but-wrong FHIR guidance by forcing claim labeling, source-backed normative statements, and explicit boundaries between base spec, profiles, and local server policy.
+Point it at any FHIR question: resource structure, cardinality rules, R4/R4B/R5
+version differences, terminology bindings. The skill directs the agent to scope
+every claim (base spec, profile constraint, or server policy), back normative
+statements with citations, and flag uncertainty rather than fill gaps with
+plausible-sounding answers.
+
+What makes it different from other FHIR skills: it pairs with
+[`fhir-test-data`](https://github.com/dnlbox/fhir-test-data) and
+[`fhir-resource-diff`](https://github.com/dnlbox/fhir-resource-diff). Both tools
+generate and validate FHIR resources deterministically — so when the agent reasons
+about a resource, it works from a machine-verified artifact rather than recalled
+spec knowledge alone.
 
 ## Quick install
 
